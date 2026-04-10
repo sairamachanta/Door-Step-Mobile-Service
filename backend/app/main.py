@@ -21,8 +21,13 @@ async def startup_event():
     
     try:
         # Initialize Firebase Admin for verifying Phone Auth tokens
-        if not firebase_admin._apps:
-            firebase_admin.initialize_app(options={'projectId': 'mobile-service-7612f'})
+        try:
+            if not firebase_admin._apps:
+                firebase_admin.initialize_app(options={'projectId': 'mobile-service-7612f'})
+        except Exception as fb_err:
+            print(f"WARNING: Firebase initialization failed (non-fatal): {fb_err}")
+            with open(log_file, 'a') as f:
+                f.write(f"Firebase init skipped: {fb_err}\n")
             
         from .database import engine, Base, SessionLocal
         from .models.user import User
@@ -99,6 +104,7 @@ async def startup_event():
         raise e
 
 # CORS
+import os
 origins = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
@@ -109,6 +115,11 @@ origins = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
 ]
+
+# Add production frontend URL if set
+frontend_url = os.environ.get("FRONTEND_URL")
+if frontend_url:
+    origins.append(frontend_url)
 
 app.add_middleware(
     CORSMiddleware,

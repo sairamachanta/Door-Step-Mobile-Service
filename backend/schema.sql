@@ -1,5 +1,5 @@
 -- Users table
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     phone VARCHAR(15) UNIQUE NOT NULL,
     email VARCHAR(255) UNIQUE,
@@ -18,7 +18,7 @@ CREATE TABLE users (
 );
 
 -- OTP verification table
-CREATE TABLE otp_verifications (
+CREATE TABLE IF NOT EXISTS otp_verifications (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     phone VARCHAR(15) NOT NULL,
     otp_code VARCHAR(6) NOT NULL,
@@ -29,7 +29,7 @@ CREATE TABLE otp_verifications (
 );
 
 -- Refresh tokens table
-CREATE TABLE refresh_tokens (
+CREATE TABLE IF NOT EXISTS refresh_tokens (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     user_id UUID REFERENCES users(id) ON DELETE CASCADE,
     token VARCHAR(500) UNIQUE NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE refresh_tokens (
 );
 
 -- Create indexes
-CREATE INDEX idx_users_phone ON users(phone);
-CREATE INDEX idx_users_email ON users(email);
-CREATE INDEX idx_otp_phone ON otp_verifications(phone, otp_type);
-CREATE INDEX idx_refresh_tokens_user ON refresh_tokens(user_id);
+CREATE INDEX IF NOT EXISTS idx_users_phone ON users(phone);
+CREATE INDEX IF NOT EXISTS idx_users_email ON users(email);
+CREATE INDEX IF NOT EXISTS idx_otp_phone ON otp_verifications(phone, otp_type);
+CREATE INDEX IF NOT EXISTS idx_refresh_tokens_user ON refresh_tokens(user_id);

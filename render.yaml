@@ -17,6 +17,8 @@ services:
         generateValue: true
       - key: JWT_REFRESH_SECRET_KEY
         generateValue: true
+      - key: FRONTEND_URL
+        value: ""  # Set this to your deployed frontend URL
 databases:
   - name: doorstep-db
     databaseName: doorstep_db

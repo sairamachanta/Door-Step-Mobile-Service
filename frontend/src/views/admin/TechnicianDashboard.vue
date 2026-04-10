@@ -198,13 +198,7 @@ const notesMap = reactive({})
 
 const loading = reactive({ stats: false, bookings: false, customers: false })
 
-const tabs = computed(() => metadataStore.getOptions('TECHNICIAN_TAB').length > 0 
-  ? metadataStore.getOptions('TECHNICIAN_TAB') 
-  : [
-      { code: 'jobs', label: 'My Jobs' },
-      { code: 'customers', label: 'Customers' }
-    ]
-)
+const tabs = computed(() => metadataStore.getOptions('TECHNICIAN_TAB'))
 
 // Computed tab key because my dynamic metadata uses 'code' while local used 'key'
 const activeTabKey = computed(() => activeTab.value)

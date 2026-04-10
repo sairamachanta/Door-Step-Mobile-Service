@@ -245,13 +245,16 @@ async def get_quick_actions(db: AsyncSession = Depends(get_db)):
     services = result.scalars().all()
     
     actions = []
+    from .service import ServicePricing
     for s in services:
+        price_query = select(func.min(ServicePricing.final_price)).where(ServicePricing.service_id == s.id)
+        min_price = (await db.execute(price_query)).scalar() or 0.0
         actions.append(
             QuickAction(
                 id=s.id,
                 name=s.service_name.split('(')[0].strip(),
                 icon=s.icon_name or "Smartphone",
-                starting_price=499.0,
+                starting_price=float(min_price),
                 service_type=s.service_type,
                 color=s.icon_color or "#6366F1"
             )
@@ -368,7 +371,10 @@ async def get_services(
     services = result.scalars().all()
     
     output = []
+    from .service import ServicePricing
     for s in services:
+        price_query = select(func.min(ServicePricing.final_price)).where(ServicePricing.service_id == s.id)
+        min_price = (await db.execute(price_query)).scalar() or 0.0
         output.append(
             ServiceListItem(
                 id=s.id,
@@ -377,7 +383,7 @@ async def get_services(
                 type=s.service_type,
                 icon=s.icon_name or "Smartphone",
                 icon_color=s.icon_color or "#6366F1",
-                starting_price=999.0, # This should come from service_pricing in a real app
+                starting_price=float(min_price),
                 duration="30-60 mins",
                 warranty="6 months warranty"
             )

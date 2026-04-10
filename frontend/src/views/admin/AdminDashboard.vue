@@ -367,12 +367,10 @@ const loading = reactive({
   addStaff: false,
 })
 
-const tabs = computed(() => [
-  { key: 'users', label: metadataStore.getLabel('ADMIN_TAB', 'users') || 'Manage Users' },
-  { key: 'technicians', label: metadataStore.getLabel('ADMIN_TAB', 'technicians') || 'Manage Technicians' },
-  { key: 'admins', label: metadataStore.getLabel('ADMIN_TAB', 'admins') || 'Manage Admins' },
-  { key: 'bookings', label: metadataStore.getLabel('ADMIN_TAB', 'bookings') || 'Bookings & Ops' },
-])
+const tabs = computed(() => metadataStore.getOptions('ADMIN_TAB').map(opt => ({
+    key: opt.code,
+    label: opt.label
+})))
 
 const bookingStatuses = computed(() => metadataStore.getOptions('BOOKING_STATUS'))
 

@@ -42,22 +42,6 @@ async def startup_event():
                 f.write("Database tables verified/created.\n")
 
         async with SessionLocal() as session:
-            # Seed Users
-            user_count = (await session.execute(select(func.count(User.id)))).scalar()
-            user_seeds_path = os.path.join(seeds_dir, 'user_seeds.json')
-            if user_count == 0 and os.path.exists(user_seeds_path):
-                with open(user_seeds_path, 'r') as f:
-                    user_seeds = json.load(f)
-                for u_data in user_seeds:
-                    password = u_data.pop('password')
-                    u_data['password_hash'] = get_password_hash(password)
-                    u_data['is_phone_verified'] = True
-                    u_data['status'] = 'active'
-                    u_data['id'] = uuid.uuid4()
-                    session.add(User(**u_data))
-                with open(log_file, 'a') as f:
-                    f.write(f"Seeded {len(user_seeds)} initial users.\n")
-
             # Seed Banners
             from .models.promotion import Banner
             banner_count = (await session.execute(select(func.count(Banner.id)))).scalar()

@@ -208,42 +208,48 @@ const {
   stats: apiStats,
   activeBooking: apiActiveBooking,
   recentBookings: apiRecentBookings,
+  quickActions: apiQuickActions,
   loading,
   error,
   fetchAll,
   retry
 } = useDashboard()
 
-// Fallback data - will be used if API is not available
-const fallbackStats = [
-  { label: 'Total Bookings', value: '0', icon: LayoutGrid, bgColor: 'bg-blue-50', iconColor: 'text-blue-600' },
-  { label: 'Scheduled', value: '0', icon: Calendar, bgColor: 'bg-emerald-50', iconColor: 'text-emerald-600' },
-  { label: 'Credits', value: '₹0', icon: Wallet, bgColor: 'bg-amber-50', iconColor: 'text-amber-600' },
-  { label: 'Reward Points', value: '0', icon: Star, bgColor: 'bg-rose-50', iconColor: 'text-rose-600' }
-]
+// Icon mapping for dynamic category icons
+const iconMap = {
+  Smartphone,
+  Battery,
+  Cpu,
+  Zap,
+  Calendar,
+  Wallet,
+  Star,
+  LayoutGrid
+}
 
-// Computed properties to use API data with fallback
+const getIcon = (name) => iconMap[name] || Smartphone
+
+// Computed properties to use API data
 const stats = computed(() => {
-  if (apiStats.value) {
-    return [
-      { label: 'Total Bookings', value: String(apiStats.value.total_bookings || '0'), icon: LayoutGrid, bgColor: 'bg-blue-50', iconColor: 'text-blue-600' },
-      { label: 'Scheduled', value: String(apiStats.value.scheduled_bookings || '0'), icon: Calendar, bgColor: 'bg-emerald-50', iconColor: 'text-emerald-600' },
-      { label: 'Credits', value: `₹${apiStats.value.wallet_balance || '0'}`, icon: Wallet, bgColor: 'bg-amber-50', iconColor: 'text-amber-600' },
-      { label: 'Reward Points', value: String(apiStats.value.loyalty_points || '0'), icon: Star, bgColor: 'bg-rose-50', iconColor: 'text-rose-600' }
-    ]
-  }
-  return fallbackStats
+  return [
+    { label: 'Total Bookings', value: String(apiStats.value?.total_bookings || '0'), icon: LayoutGrid, bgColor: 'bg-blue-50', iconColor: 'text-blue-600' },
+    { label: 'Scheduled', value: String(apiStats.value?.scheduled_bookings || '0'), icon: Calendar, bgColor: 'bg-emerald-50', iconColor: 'text-emerald-600' },
+    { label: 'Credits', value: `₹${apiStats.value?.wallet_balance || '0'}`, icon: Wallet, bgColor: 'bg-amber-50', iconColor: 'text-amber-600' },
+    { label: 'Reward Points', value: String(apiStats.value?.loyalty_points || '0'), icon: Star, bgColor: 'bg-rose-50', iconColor: 'text-rose-600' }
+  ]
 })
 
 const activeBooking = computed(() => apiActiveBooking.value || null)
 const recentActivity = computed(() => apiRecentBookings.value || [])
-
-const quickCategories = [
-  { name: 'Display', icon: Smartphone, bgColor: 'bg-blue-100', iconColor: 'text-blue-600' },
-  { name: 'Battery', icon: Battery, bgColor: 'bg-emerald-100', iconColor: 'text-emerald-600' },
-  { name: 'Logic Board', icon: Cpu, bgColor: 'bg-amber-100', iconColor: 'text-amber-600' },
-  { name: 'Connectivity', icon: Zap, bgColor: 'bg-rose-100', iconColor: 'text-rose-600' }
-]
+const quickCategories = computed(() => {
+    return (apiQuickActions.value?.quick_actions || apiQuickActions.value || []).map(action => ({
+        name: action.name,
+        icon: getIcon(action.icon),
+        bgColor: 'bg-blue-50', // Default style
+        iconColor: 'text-blue-600',
+        id: action.id
+    }))
+})
 
 // Fetch data on mount
 onMounted(async () => {

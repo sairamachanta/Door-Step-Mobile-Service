@@ -94,12 +94,14 @@ async def startup_event():
             with open(log_file, 'a') as f:
                 f.write("Seeding complete.\n")
                 
-    except Exception as e:
+    except Exception:
+        import traceback
+        error_trace = traceback.format_exc()
         with open(log_file, 'a') as f:
-            f.write(f"STARTUP CRITICAL ERROR: {str(e)}\n")
+            f.write(f"STARTUP CRITICAL ERROR:\n{error_trace}\n")
         # Log but don't crash - let uvicorn bind to port
         # DB tables will be created on first successful connection
-        print(f"STARTUP WARNING: {str(e)} - server will start anyway", flush=True)
+        print(f"STARTUP WARNING: Database initialization failed. Details logged.\n{error_trace}", flush=True)
 
 # CORS
 import os

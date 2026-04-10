@@ -37,6 +37,8 @@ class DeviceModelBase(BaseModel):
     repair_complexity: Optional[int] = None
     avg_repair_time_minutes: int = 60
 
+    model_config = {'protected_namespaces': ()}
+
 class DeviceModelCreate(DeviceModelBase):
     pass
 

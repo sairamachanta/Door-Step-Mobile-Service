@@ -245,7 +245,6 @@ async def get_quick_actions(db: AsyncSession = Depends(get_db)):
     services = result.scalars().all()
     
     actions = []
-    from .service import ServicePricing
     for s in services:
         price_query = select(func.min(ServicePricing.final_price)).where(ServicePricing.service_id == s.id)
         min_price = (await db.execute(price_query)).scalar() or 0.0
@@ -371,7 +370,6 @@ async def get_services(
     services = result.scalars().all()
     
     output = []
-    from .service import ServicePricing
     for s in services:
         price_query = select(func.min(ServicePricing.final_price)).where(ServicePricing.service_id == s.id)
         min_price = (await db.execute(price_query)).scalar() or 0.0

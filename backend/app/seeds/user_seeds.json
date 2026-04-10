@@ -1,0 +1,23 @@
+[
+    {
+        "phone": "9999999999",
+        "full_name": "System Admin",
+        "email": "admin@doorstep.com",
+        "role": "admin",
+        "password": "Admin@123"
+    },
+    {
+        "phone": "7777777777",
+        "full_name": "Master Technician",
+        "email": "tech@doorstep.com",
+        "role": "technician",
+        "password": "Admin@123"
+    },
+    {
+        "phone": "8888888888",
+        "full_name": "Customer User",
+        "email": "user@doorstep.com",
+        "role": "customer",
+        "password": "Admin@123"
+    }
+]

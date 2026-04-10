@@ -17,7 +17,7 @@ from ..schemas.booking import (
     ServiceCenter as ServiceCenterSchema,
     BookingListResponse as BookingListItem # Reusing for list
 )
-from app.schemas.admin_schemas import PaginationInfo
+from ..schemas.admin_schemas import PaginationInfo
 from pydantic import BaseModel
 from ..utils.dependencies import get_current_active_user
 from ..utils.metadata import MetadataHelper

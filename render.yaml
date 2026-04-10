@@ -18,7 +18,27 @@ services:
       - key: JWT_REFRESH_SECRET_KEY
         generateValue: true
       - key: FRONTEND_URL
-        value: ""  # Set this to your deployed frontend URL
+        value: ""  # Will be auto-set after frontend deploys
+
+  - type: web
+    name: doorstep-frontend
+    env: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+    plan: free
+    envVars:
+      - key: VITE_API_BASE_URL
+        value: https://doorstep-backend-a4b1.onrender.com/api
+
 databases:
   - name: doorstep-db
     databaseName: doorstep_db

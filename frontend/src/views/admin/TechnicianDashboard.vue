@@ -22,7 +22,7 @@
 
       <main class="max-w-5xl mx-auto p-4 md:p-8 space-y-6">
         <!-- Stats Row -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           <div v-for="s in statCards" :key="s.label" class="bg-white rounded-2xl border border-slate-100 p-4 space-y-2 shadow-sm">
             <div :class="['w-9 h-9 rounded-xl flex items-center justify-center', s.color]">
               <component :is="s.icon" class="w-4 h-4" />

@@ -22,7 +22,7 @@
 
       <main class="max-w-7xl mx-auto p-4 md:p-8 space-y-8">
         <!-- Dashboard Summary Overview (Total Stats) -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           <div v-for="s in statCards" :key="s.label" class="bg-white p-6 rounded-[24px] border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 group">
             <div class="flex items-center justify-between mb-4">
               <div :class="['w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110', s.color]">
@@ -68,25 +68,25 @@
               <!-- Context Summary & Action Bar -->
               <div class="flex flex-col xl:flex-row justify-between gap-6">
                 <!-- Inline Summary Cards -->
-                <div class="flex gap-4">
-                  <div class="bg-white px-6 py-5 rounded-[20px] border border-slate-100 shadow-sm flex items-center gap-4 min-w-[200px]">
-                      <div class="w-12 h-12 rounded-2xl bg-primary-50 text-primary-600 flex items-center justify-center">
-                        <Users v-if="activeTab === 'users'" class="w-6 h-6" />
-                        <Wrench v-else-if="activeTab === 'technicians'" class="w-6 h-6" />
-                        <ShieldCheck v-else class="w-6 h-6" />
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-1">
+                  <div class="bg-white px-4 py-5 rounded-[20px] border border-slate-100 shadow-sm flex items-center gap-4">
+                      <div class="w-10 h-10 rounded-2xl bg-primary-50 text-primary-600 flex items-center justify-center shrink-0">
+                        <Users v-if="activeTab === 'users'" class="w-5 h-5" />
+                        <Wrench v-else-if="activeTab === 'technicians'" class="w-5 h-5" />
+                        <ShieldCheck v-else class="w-5 h-5" />
                       </div>
                       <div>
                         <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Active {{ activeTab.slice(0,-1) }}</p>
-                        <p class="text-2xl font-black text-slate-900 leading-none mt-1">{{ stats?.[`total_${activeTab === 'users' ? 'customers' : activeTab}`] || 0 }}</p>
+                        <p class="text-xl font-black text-slate-900 leading-none mt-1">{{ stats?.[`total_${activeTab === 'users' ? 'customers' : activeTab}`] || 0 }}</p>
                       </div>
                   </div>
-                  <div class="bg-white px-6 py-5 rounded-[20px] border border-slate-100 shadow-sm flex items-center gap-4 min-w-[200px]">
-                      <div class="w-12 h-12 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center">
-                        <UserX class="w-6 h-6" />
+                  <div class="bg-white px-4 py-5 rounded-[20px] border border-slate-100 shadow-sm flex items-center gap-4">
+                      <div class="w-10 h-10 rounded-2xl bg-red-50 text-red-600 flex items-center justify-center shrink-0">
+                        <UserX class="w-5 h-5" />
                       </div>
                       <div>
                         <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Suspended</p>
-                        <p class="text-2xl font-black text-slate-900 leading-none mt-1">{{ stats?.[`suspended_${activeTab === 'users' ? 'users' : activeTab}`] || 0 }}</p>
+                        <p class="text-xl font-black text-slate-900 leading-none mt-1">{{ stats?.[`suspended_${activeTab === 'users' ? 'users' : activeTab}`] || 0 }}</p>
                       </div>
                   </div>
                 </div>

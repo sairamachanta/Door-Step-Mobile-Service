@@ -126,7 +126,7 @@
               <span class="w-2 h-2 bg-primary-700 rounded-full animate-pulse"></span>
               Available in 50+ Cities
             </div>
-            <h1 class="text-5xl md:text-7xl font-black text-slate-900 tracking-tight leading-[1.1]">
+            <h1 class="text-4xl md:text-7xl font-black text-slate-900 tracking-tight leading-[1.1]">
               Expert <span class="text-grad-primary">Mobile Repairs</span> at Your Doorstep
             </h1>
             <p class="text-lg md:text-xl text-slate-500 font-medium max-w-xl">
@@ -168,7 +168,7 @@
       <!-- 3. Service Categories Marquee -->
       <section id="services" class="bg-slate-50 py-24 md:py-32 overflow-hidden">
         <div class="mb-20 px-4 md:px-8 text-center space-y-4">
-          <h2 class="md:text-[60px] text-[30px] font-bold leading-tight text-slate-900 tracking-tight">Our <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Services</span></h2>
+          <h2 class="text-3xl md:text-[60px] font-bold leading-tight text-slate-900 tracking-tight">Our <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Services</span></h2>
           <p class="text-slate-500 font-medium max-w-3xl mx-auto text-lg md:text-2xl">No matter your device, Doorstep helps you get fixed, stay connected, and get back to life faster.</p>
         </div>
 
@@ -205,7 +205,7 @@
       <!-- 4. How It Works -->
       <section class="section-container py-24">
         <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
-          <h2 class="md:text-[60px] text-[30px] font-bold leading-tight text-slate-900 tracking-tight">How It <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Works</span></h2>
+          <h2 class="text-3xl md:text-[60px] font-bold leading-tight text-slate-900 tracking-tight">How It <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Works</span></h2>
           <p class="text-slate-500 font-medium text-lg">Simple 4-step process to get your service done.</p>
         </div>
         
@@ -239,7 +239,7 @@
         <div class="section-container grid md:grid-cols-2 gap-16 items-center">
           <div class="space-y-12 animate-reveal">
             <div class="space-y-4">
-              <h2 class="md:text-[60px] text-[30px] font-bold leading-tight text-slate-900 tracking-tight">Why <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">Trust Us?</span></h2>
+              <h2 class="text-3xl md:text-[60px] font-bold leading-tight text-slate-900 tracking-tight">Why <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">Trust Us?</span></h2>
               <p class="text-slate-500 font-medium text-lg">We prioritize quality, trust, and your satisfaction above all else.</p>
             </div>
             
@@ -283,7 +283,7 @@
       <section id="pricing" class="bg-white py-24 md:py-32 overflow-hidden animate-reveal">
         <div class="section-container">
           <div class="flex items-center justify-between mb-16">
-            <h2 class="md:text-[60px] text-[30px] font-bold leading-tight text-slate-900 tracking-tight">Popular <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-500">Repairs</span></h2>
+            <h2 class="text-3xl md:text-[60px] font-bold leading-tight text-slate-900 tracking-tight">Popular <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-500 to-teal-500">Repairs</span></h2>
             <div class="flex gap-4">
               <button @click="scrollServices('left')" class="w-12 h-12 rounded-full border border-slate-200 flex items-center justify-center text-slate-900 hover:bg-slate-50 transition-colors active:scale-95">
                 <ChevronLeft class="w-6 h-6" />
@@ -319,7 +319,7 @@
       <!-- 5.1 Testimonials Section -->
       <section class="bg-slate-50 section-container">
         <div class="text-center max-w-4xl mx-auto mb-20 space-y-4">
-          <h2 class="md:text-[60px] text-[30px] font-bold leading-tight text-slate-900 tracking-tight">What our <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">customers</span> are saying</h2>
+          <h2 class="text-3xl md:text-[60px] font-bold leading-tight text-slate-900 tracking-tight">What our <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">customers</span> are saying</h2>
           <p class="text-slate-500 font-medium text-lg leading-relaxed">Hear from thousands of happy customers who experience our service daily.</p>
         </div>
         
@@ -358,7 +358,7 @@
               <div class="inline-flex items-center gap-2 px-3 py-1 bg-blue-100 text-primary-700 rounded-full text-xs font-bold uppercase tracking-wider">
                 <MapPin class="w-3 h-3" /> Visit Our Store
               </div>
-              <h2 class="md:text-[60px] text-[30px] font-bold leading-tight text-slate-900 tracking-tight">About <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-800">Doorstep</span></h2>
+              <h2 class="text-3xl md:text-[60px] font-bold leading-tight text-slate-900 tracking-tight">About <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-800">Doorstep</span></h2>
               <p class="text-slate-500 font-medium leading-relaxed">
                 We are a dedicated team of certified technicians committed to bringing premium mobile repair services directly to your location. Located in the heart of Hyderabad, we serve customers with speed, transparency, and original parts.
               </p>
@@ -392,7 +392,7 @@
       <!-- 5.3 FAQs Section -->
       <section id="faqs" class="bg-slate-50 section-container py-24">
         <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <h2 class="md:text-[60px] text-[30px] font-bold leading-tight text-slate-900 tracking-tight"><span class="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">FAQ</span></h2>
+          <h2 class="text-3xl md:text-[60px] font-bold leading-tight text-slate-900 tracking-tight"><span class="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">FAQ</span></h2>
           <p class="text-slate-500 font-medium text-lg">Everything you need to know about our service.</p>
         </div>
 

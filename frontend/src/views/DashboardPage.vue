@@ -26,7 +26,7 @@
 
       <main class="p-4 md:p-6 space-y-6 md:space-y-8 animate-reveal max-w-7xl mx-auto">
         <!-- Quick Stats with Loading States -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
           <div v-for="stat in stats" :key="stat.label" 
             class="bg-white p-4 md:p-6 rounded-2xl md:rounded-3xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 cursor-pointer group">
             <div class="flex items-start justify-between mb-2 md:mb-3">

@@ -49,9 +49,9 @@ const handleLogin = async () => {
 <template>
   <div class="min-h-screen grid lg:grid-cols-2">
     <!-- Left: Form Section -->
-    <div class="flex flex-col justify-center px-4 sm:px-6 lg:px-20 xl:px-24 bg-white dark:bg-gray-900 transition-colors duration-300">
+    <div class="flex flex-col justify-center px-4 sm:px-6 lg:px-20 xl:px-24 bg-white dark:bg-gray-900 transition-colors duration-300 min-h-screen py-20 lg:py-0">
       <!-- Header with Logo and Back Button -->
-      <div class="absolute top-6 left-0 right-0 px-4 sm:px-6 lg:px-20 xl:px-24 z-50">
+      <div class="absolute top-6 left-0 right-0 px-4 sm:px-6 lg:px-20 xl:px-24 z-50 lg:block hidden">
         <div class="flex justify-between items-center">
           <router-link to="/" class="flex items-center gap-2 group">
             <div class="w-8 h-8 rounded-lg bg-primary-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-primary-500/30 transition-transform group-hover:scale-110">D</div>
@@ -64,6 +64,17 @@ const handleLogin = async () => {
             </router-link>
             <ThemeToggle />
           </div>
+        </div>
+      </div>
+
+      <!-- Mobile Header (Relative) -->
+      <div class="lg:hidden mb-8">
+        <div class="flex justify-between items-center">
+          <router-link to="/" class="flex items-center gap-2 group">
+            <div class="w-8 h-8 rounded-lg bg-primary-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-primary-500/30 transition-transform group-hover:scale-110">D</div>
+            <span class="font-bold text-xl text-gray-900 dark:text-white">Doorstep</span>
+          </router-link>
+          <ThemeToggle />
         </div>
       </div>
 

@@ -1,6 +1,6 @@
 <template>
-  <nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 safe-bottom z-50 shadow-lg md:hidden">
-    <div class="flex items-center justify-around h-[60px] px-2">
+  <nav class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 safe-bottom z-50 shadow-lg md:hidden" style="padding-bottom: env(safe-area-inset-bottom);">
+    <div class="flex items-center justify-around h-[64px] px-2 mb-[env(safe-area-inset-bottom)]">
       <router-link
         v-for="item in navItems"
         :key="item.path"

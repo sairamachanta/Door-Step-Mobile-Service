@@ -99,9 +99,9 @@ async def startup_event():
     except Exception as e:
         with open(log_file, 'a') as f:
             f.write(f"STARTUP CRITICAL ERROR: {str(e)}\n")
-        # Raising the error is still good to stop the server if it's fatal, 
-        # but now we have it logged.
-        raise e
+        # Log but don't crash - let uvicorn bind to port
+        # DB tables will be created on first successful connection
+        print(f"STARTUP WARNING: {str(e)} - server will start anyway", flush=True)
 
 # CORS
 import os

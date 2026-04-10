@@ -1,0 +1,435 @@
+
+--- Startup at 2026-02-22 04:44:45.233774 ---
+Database tables verified/created.
+Seeded user: 9000000001
+Seeded user: 9000000002
+Seeded user: 9000000003
+STARTUP CRITICAL ERROR: (sqlalchemy.dialects.postgresql.asyncpg.IntegrityError) <class 'asyncpg.exceptions.CheckViolationError'>: new row for relation "users" violates check constraint "users_role_check"
+DETAIL:  Failing row contains (70986c43-8c92-4897-8150-9be7f027a259, 9000000001, null, $2b$12$TwrY6hJR088aN3xVX0E8t.qvjyuq5/T20V4GdtPexyu570Q1edOWe, SuperAdmin (Root), superadmin, active, null, t, f, null, null, 2026-02-22 10:14:45.594199, 2026-02-22 10:14:45.594199, null).
+[SQL: INSERT INTO users (id, phone, email, password_hash, full_name, role, status, profile_image, is_phone_verified, is_email_verified, referral_code, referred_by, created_at, updated_at, last_login) VALUES ($1::UUID, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, ... 531 characters truncated ... w(), now(), $39::TIMESTAMP WITHOUT TIME ZONE) RETURNING users.created_at, users.updated_at, users.id]
+[parameters: (UUID('70986c43-8c92-4897-8150-9be7f027a259'), '9000000001', None, '$2b$12$TwrY6hJR088aN3xVX0E8t.qvjyuq5/T20V4GdtPexyu570Q1edOWe', 'SuperAdmin (Root)', 'superadmin', 'active', None, True, False, None, None, None, UUID('16935882-def5-472d-9c46-a60ee6852335'), '9000000002', None, '$2b$12$TwrY6hJR088aN3xVX0E8t.qvjyuq5/T20V4GdtPexyu570Q1edOWe', 'Technician (Admin)', 'admin', 'active', None, True, False, None, None, None, UUID('5cb02710-d2e2-4ad7-8469-c606b39d2e9b'), '9000000003', None, '$2b$12$TwrY6hJR088aN3xVX0E8t.qvjyuq5/T20V4GdtPexyu570Q1edOWe', 'Customer (User)', 'customer', 'active', None, True, False, None, None, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+--- Startup at 2026-02-22 04:44:52.781078 ---
+Database tables verified/created.
+Seeded user: 9000000001
+Seeded user: 9000000002
+Seeded user: 9000000003
+STARTUP CRITICAL ERROR: (sqlalchemy.dialects.postgresql.asyncpg.IntegrityError) <class 'asyncpg.exceptions.CheckViolationError'>: new row for relation "users" violates check constraint "users_role_check"
+DETAIL:  Failing row contains (a1163d0b-0d46-4153-9c1e-9f56e9c58272, 9000000001, null, $2b$12$/w/wWL9hIUbdxvgXV2QOxe6Fvni/y3HXuQE5D9OpaE6S33nUUPG9y, SuperAdmin (Root), superadmin, active, null, t, f, null, null, 2026-02-22 10:14:53.091875, 2026-02-22 10:14:53.091875, null).
+[SQL: INSERT INTO users (id, phone, email, password_hash, full_name, role, status, profile_image, is_phone_verified, is_email_verified, referral_code, referred_by, created_at, updated_at, last_login) VALUES ($1::UUID, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, ... 531 characters truncated ... w(), now(), $39::TIMESTAMP WITHOUT TIME ZONE) RETURNING users.created_at, users.updated_at, users.id]
+[parameters: (UUID('a1163d0b-0d46-4153-9c1e-9f56e9c58272'), '9000000001', None, '$2b$12$/w/wWL9hIUbdxvgXV2QOxe6Fvni/y3HXuQE5D9OpaE6S33nUUPG9y', 'SuperAdmin (Root)', 'superadmin', 'active', None, True, False, None, None, None, UUID('8caff108-e574-4ced-9bb1-abe6fc5d22c5'), '9000000002', None, '$2b$12$/w/wWL9hIUbdxvgXV2QOxe6Fvni/y3HXuQE5D9OpaE6S33nUUPG9y', 'Technician (Admin)', 'admin', 'active', None, True, False, None, None, None, UUID('e413b245-494d-4395-b208-618387abfacf'), '9000000003', None, '$2b$12$/w/wWL9hIUbdxvgXV2QOxe6Fvni/y3HXuQE5D9OpaE6S33nUUPG9y', 'Customer (User)', 'customer', 'active', None, True, False, None, None, None)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+--- Startup at 2026-02-22 04:45:19.864425 ---
+Database tables verified/created.
+Seeded user: 9000000001
+Seeded user: 9000000002
+Seeded user: 9000000003
+Seeding complete.
+
+--- Startup at 2026-02-22 04:58:10.362929 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-22 04:58:53.596493 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-22 04:59:27.750946 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-22 04:59:33.996981 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-22 04:59:46.632764 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-22 04:59:55.197212 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-22 05:04:30.573958 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-22 05:17:49.917588 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-22 05:23:30.799560 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-22 05:23:32.846481 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-22 05:23:42.809245 ---
+Database tables verified/created.
+STARTUP CRITICAL ERROR: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.wallet_balance does not exist
+[SQL: SELECT users.id, users.phone, users.email, users.password_hash, users.full_name, users.role, users.status, users.profile_image, users.is_phone_verified, users.is_email_verified, users.referral_code, users.referred_by, users.created_at, users.updated_at, users.last_login, users.wallet_balance, users.loyalty_points 
+FROM users 
+WHERE users.phone = $1::VARCHAR]
+[parameters: ('9000000001',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+--- Startup at 2026-02-22 05:23:44.782152 ---
+Database tables verified/created.
+STARTUP CRITICAL ERROR: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.wallet_balance does not exist
+[SQL: SELECT users.id, users.phone, users.email, users.password_hash, users.full_name, users.role, users.status, users.profile_image, users.is_phone_verified, users.is_email_verified, users.referral_code, users.referred_by, users.created_at, users.updated_at, users.last_login, users.wallet_balance, users.loyalty_points 
+FROM users 
+WHERE users.phone = $1::VARCHAR]
+[parameters: ('9000000001',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+--- Startup at 2026-02-22 05:23:46.763708 ---
+Database tables verified/created.
+STARTUP CRITICAL ERROR: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.wallet_balance does not exist
+[SQL: SELECT users.id, users.phone, users.email, users.password_hash, users.full_name, users.role, users.status, users.profile_image, users.is_phone_verified, users.is_email_verified, users.referral_code, users.referred_by, users.created_at, users.updated_at, users.last_login, users.wallet_balance, users.loyalty_points 
+FROM users 
+WHERE users.phone = $1::VARCHAR]
+[parameters: ('9000000001',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+--- Startup at 2026-02-22 05:24:12.207000 ---
+Database tables verified/created.
+STARTUP CRITICAL ERROR: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.wallet_balance does not exist
+[SQL: SELECT users.id, users.phone, users.email, users.password_hash, users.full_name, users.role, users.status, users.profile_image, users.is_phone_verified, users.is_email_verified, users.referral_code, users.referred_by, users.created_at, users.updated_at, users.last_login, users.wallet_balance, users.loyalty_points 
+FROM users 
+WHERE users.phone = $1::VARCHAR]
+[parameters: ('9000000001',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+--- Startup at 2026-02-22 05:24:14.266446 ---
+Database tables verified/created.
+STARTUP CRITICAL ERROR: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.wallet_balance does not exist
+[SQL: SELECT users.id, users.phone, users.email, users.password_hash, users.full_name, users.role, users.status, users.profile_image, users.is_phone_verified, users.is_email_verified, users.referral_code, users.referred_by, users.created_at, users.updated_at, users.last_login, users.wallet_balance, users.loyalty_points 
+FROM users 
+WHERE users.phone = $1::VARCHAR]
+[parameters: ('9000000001',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+--- Startup at 2026-02-22 05:24:24.281995 ---
+Database tables verified/created.
+STARTUP CRITICAL ERROR: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.wallet_balance does not exist
+[SQL: SELECT users.id, users.phone, users.email, users.password_hash, users.full_name, users.role, users.status, users.profile_image, users.is_phone_verified, users.is_email_verified, users.referral_code, users.referred_by, users.created_at, users.updated_at, users.last_login, users.wallet_balance, users.loyalty_points 
+FROM users 
+WHERE users.phone = $1::VARCHAR]
+[parameters: ('9000000001',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+--- Startup at 2026-02-22 05:24:38.973786 ---
+Database tables verified/created.
+STARTUP CRITICAL ERROR: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.wallet_balance does not exist
+[SQL: SELECT users.id, users.phone, users.email, users.password_hash, users.full_name, users.role, users.status, users.profile_image, users.is_phone_verified, users.is_email_verified, users.referral_code, users.referred_by, users.created_at, users.updated_at, users.last_login, users.wallet_balance, users.loyalty_points 
+FROM users 
+WHERE users.phone = $1::VARCHAR]
+[parameters: ('9000000001',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+--- Startup at 2026-02-22 05:24:41.118754 ---
+Database tables verified/created.
+STARTUP CRITICAL ERROR: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.wallet_balance does not exist
+[SQL: SELECT users.id, users.phone, users.email, users.password_hash, users.full_name, users.role, users.status, users.profile_image, users.is_phone_verified, users.is_email_verified, users.referral_code, users.referred_by, users.created_at, users.updated_at, users.last_login, users.wallet_balance, users.loyalty_points 
+FROM users 
+WHERE users.phone = $1::VARCHAR]
+[parameters: ('9000000001',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+--- Startup at 2026-02-22 05:24:56.135890 ---
+Database tables verified/created.
+STARTUP CRITICAL ERROR: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.wallet_balance does not exist
+[SQL: SELECT users.id, users.phone, users.email, users.password_hash, users.full_name, users.role, users.status, users.profile_image, users.is_phone_verified, users.is_email_verified, users.referral_code, users.referred_by, users.created_at, users.updated_at, users.last_login, users.wallet_balance, users.loyalty_points 
+FROM users 
+WHERE users.phone = $1::VARCHAR]
+[parameters: ('9000000001',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+--- Startup at 2026-02-22 05:24:58.391474 ---
+Database tables verified/created.
+STARTUP CRITICAL ERROR: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.wallet_balance does not exist
+[SQL: SELECT users.id, users.phone, users.email, users.password_hash, users.full_name, users.role, users.status, users.profile_image, users.is_phone_verified, users.is_email_verified, users.referral_code, users.referred_by, users.created_at, users.updated_at, users.last_login, users.wallet_balance, users.loyalty_points 
+FROM users 
+WHERE users.phone = $1::VARCHAR]
+[parameters: ('9000000001',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+--- Startup at 2026-02-22 05:32:00.449030 ---
+Database tables verified/created.
+STARTUP CRITICAL ERROR: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.wallet_balance does not exist
+[SQL: SELECT users.id, users.phone, users.email, users.password_hash, users.full_name, users.role, users.status, users.profile_image, users.is_phone_verified, users.is_email_verified, users.referral_code, users.referred_by, users.created_at, users.updated_at, users.last_login, users.wallet_balance, users.loyalty_points 
+FROM users 
+WHERE users.phone = $1::VARCHAR]
+[parameters: ('9000000001',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+--- Startup at 2026-02-22 05:32:08.709737 ---
+Database tables verified/created.
+STARTUP CRITICAL ERROR: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.wallet_balance does not exist
+[SQL: SELECT users.id, users.phone, users.email, users.password_hash, users.full_name, users.role, users.status, users.profile_image, users.is_phone_verified, users.is_email_verified, users.referral_code, users.referred_by, users.created_at, users.updated_at, users.last_login, users.wallet_balance, users.loyalty_points 
+FROM users 
+WHERE users.phone = $1::VARCHAR]
+[parameters: ('9000000001',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+--- Startup at 2026-02-22 05:36:49.549301 ---
+Database tables verified/created.
+STARTUP CRITICAL ERROR: (sqlalchemy.dialects.postgresql.asyncpg.ProgrammingError) <class 'asyncpg.exceptions.UndefinedColumnError'>: column users.wallet_balance does not exist
+[SQL: SELECT users.id, users.phone, users.email, users.password_hash, users.full_name, users.role, users.status, users.profile_image, users.is_phone_verified, users.is_email_verified, users.referral_code, users.referred_by, users.created_at, users.updated_at, users.last_login, users.wallet_balance, users.loyalty_points 
+FROM users 
+WHERE users.phone = $1::VARCHAR]
+[parameters: ('9000000001',)]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+
+--- Startup at 2026-02-22 05:37:47.452987 ---
+Database tables verified/created.
+Seeded initial banners.
+Seeding complete.
+
+--- Startup at 2026-02-22 05:38:16.290168 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-22 05:57:44.996539 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-22 06:41:24.865548 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-22 06:51:06.157547 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-22 06:57:02.521629 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-22 07:02:26.030355 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-22 07:14:10.461864 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-22 07:16:57.093640 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-22 07:26:23.732938 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-22 07:30:21.360585 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-22 07:38:40.374842 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-22 07:38:48.880345 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-22 07:39:46.190392 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-22 07:59:53.421305 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-22 07:59:59.738487 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-22 08:00:05.956173 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-22 08:04:13.388579 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-22 08:04:16.551069 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-25 16:37:22.506151 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-25 16:42:56.743426 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-25 16:43:36.633221 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-25 16:44:51.355897 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-25 16:45:51.811384 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-25 16:54:06.181420 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-25 16:54:45.937902 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-25 16:54:59.460111 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-25 16:55:27.859166 ---
+Database tables verified/created.
+Seeded initial system metadata.
+Seeded initial system settings.
+Seeding complete.
+
+--- Startup at 2026-02-25 16:56:58.582166 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-25 16:58:14.314965 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-25 16:58:33.991901 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-25 16:58:56.366381 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-25 16:59:07.813049 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-25 16:59:24.285492 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-25 16:59:52.311630 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-25 17:00:02.334555 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-25 17:01:47.287475 ---
+
+--- Startup at 2026-02-25 17:01:47.287556 ---
+
+--- Startup at 2026-02-25 17:01:47.287584 ---
+
+--- Startup at 2026-02-25 17:01:47.287603 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-25 17:04:04.874459 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-25 17:04:29.483526 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-25 17:05:47.974556 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-25 17:06:25.789822 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-25 17:06:40.274931 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-25 17:07:48.527887 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-25 17:08:18.736962 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 14:08:41.790076 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 14:22:54.587449 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 14:24:51.900338 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 14:25:25.430567 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 14:28:37.024388 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 14:29:26.120736 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 14:36:49.022999 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 14:37:22.776232 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 14:38:32.859221 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 14:38:50.816680 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 14:39:49.084668 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 14:40:09.025136 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 14:40:34.994981 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 14:40:59.390212 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 14:41:24.089546 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 14:47:30.055869 ---
+Database tables verified/created.
+Seeding complete.

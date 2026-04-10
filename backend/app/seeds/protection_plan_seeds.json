@@ -1,0 +1,52 @@
+[
+    {
+        "name": "FREE",
+        "description": "For personal testing",
+        "price": 0.0,
+        "discounted_price": 0.0,
+        "duration_months": 1,
+        "features": [
+            "1 Service Request",
+            "Zero Visiting Charges"
+        ],
+        "is_popular": false
+    },
+    {
+        "name": "STARTER",
+        "description": "For frequent users",
+        "price": 499.0,
+        "discounted_price": 299.0,
+        "duration_months": 12,
+        "features": [
+            "5 Service Requests",
+            "Zero Visiting Charges",
+            "15-Day Warranty"
+        ],
+        "is_popular": false
+    },
+    {
+        "name": "PRO",
+        "description": "Unbeatable value",
+        "price": 1999.0,
+        "discounted_price": 999.0,
+        "duration_months": 12,
+        "features": [
+            "Unlimited Requests",
+            "30-Day Warranty",
+            "Priority Support"
+        ],
+        "is_popular": true
+    },
+    {
+        "name": "ENTERPRISE",
+        "description": "Ultimate protection",
+        "price": 3999.0,
+        "discounted_price": 2499.0,
+        "duration_months": 12,
+        "features": [
+            "Unlimited Everything",
+            "VIP Support"
+        ],
+        "is_popular": false
+    }
+]

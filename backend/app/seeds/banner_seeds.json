@@ -1,0 +1,14 @@
+[
+    {
+        "title": "50% Off on Screen Repairs",
+        "description": "Premium quality screens with 6 months warranty",
+        "image_url": "https://images.unsplash.com/photo-1596742578586-ce01449071a9?q=80&w=600&auto=format&fit=crop",
+        "display_order": 1
+    },
+    {
+        "title": "Battery draining fast?",
+        "description": "Get a new battery installed at your doorstep",
+        "image_url": "https://images.unsplash.com/photo-1620712946227-d04f2f45cc3e?q=80&w=600&auto=format&fit=crop",
+        "display_order": 2
+    }
+]

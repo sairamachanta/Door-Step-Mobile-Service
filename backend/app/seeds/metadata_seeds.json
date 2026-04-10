@@ -1,0 +1,167 @@
+[
+    {
+        "category": "USER_ROLE",
+        "code": "admin",
+        "label": "Administrator",
+        "ui_config": {
+            "color": "purple",
+            "icon": "shield"
+        },
+        "display_order": 1
+    },
+    {
+        "category": "USER_ROLE",
+        "code": "technician",
+        "label": "Technician",
+        "ui_config": {
+            "color": "blue",
+            "icon": "wrench"
+        },
+        "display_order": 2
+    },
+    {
+        "category": "USER_ROLE",
+        "code": "customer",
+        "label": "Customer",
+        "ui_config": {
+            "color": "green",
+            "icon": "user"
+        },
+        "display_order": 3
+    },
+    {
+        "category": "USER_STATUS",
+        "code": "active",
+        "label": "Active",
+        "ui_config": {
+            "color": "emerald"
+        },
+        "display_order": 1
+    },
+    {
+        "category": "USER_STATUS",
+        "code": "suspended",
+        "label": "Suspended",
+        "ui_config": {
+            "color": "red"
+        },
+        "display_order": 2
+    },
+    {
+        "category": "USER_STATUS",
+        "code": "blocked",
+        "label": "Blocked",
+        "ui_config": {
+            "color": "slate"
+        },
+        "display_order": 3
+    },
+    {
+        "category": "BOOKING_STATUS",
+        "code": "pending",
+        "label": "Pending Arrival",
+        "ui_config": {
+            "color": "amber",
+            "is_active": true,
+            "can_admin_set": true,
+            "can_technician_set": false
+        },
+        "display_order": 1
+    },
+    {
+        "category": "BOOKING_STATUS",
+        "code": "confirmed",
+        "label": "Confirmed",
+        "ui_config": {
+            "color": "blue",
+            "is_active": true,
+            "can_admin_set": true,
+            "can_technician_set": false
+        },
+        "display_order": 2
+    },
+    {
+        "category": "BOOKING_STATUS",
+        "code": "assigned",
+        "label": "Dispatched",
+        "ui_config": {
+            "color": "violet",
+            "is_active": true,
+            "can_admin_set": true,
+            "can_technician_set": false
+        },
+        "display_order": 3
+    },
+    {
+        "category": "BOOKING_STATUS",
+        "code": "in_progress",
+        "label": "In Progress",
+        "ui_config": {
+            "color": "orange",
+            "is_active": true,
+            "can_admin_set": true,
+            "can_technician_set": true
+        },
+        "display_order": 4
+    },
+    {
+        "category": "BOOKING_STATUS",
+        "code": "completed",
+        "label": "Completed",
+        "ui_config": {
+            "color": "emerald",
+            "is_active": false,
+            "can_admin_set": true,
+            "can_technician_set": true
+        },
+        "display_order": 5
+    },
+    {
+        "category": "BOOKING_STATUS",
+        "code": "cancelled",
+        "label": "Cancelled",
+        "ui_config": {
+            "color": "red",
+            "is_active": false,
+            "can_admin_set": true,
+            "can_technician_set": true
+        },
+        "display_order": 6
+    },
+    {
+        "category": "ADMIN_TAB",
+        "code": "users",
+        "label": "Manage Users",
+        "display_order": 1
+    },
+    {
+        "category": "ADMIN_TAB",
+        "code": "technicians",
+        "label": "Manage Technicians",
+        "display_order": 2
+    },
+    {
+        "category": "ADMIN_TAB",
+        "code": "admins",
+        "label": "Manage Admins",
+        "display_order": 3
+    },
+    {
+        "category": "ADMIN_TAB",
+        "code": "bookings",
+        "label": "Bookings & Ops",
+        "display_order": 4
+    },
+    {
+        "category": "TECHNICIAN_TAB",
+        "code": "jobs",
+        "label": "My Jobs",
+        "display_order": 1
+    },
+    {
+        "category": "TECHNICIAN_TAB",
+        "code": "customers",
+        "label": "Customers",
+        "display_order": 2
+    }
+]

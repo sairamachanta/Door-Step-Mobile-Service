@@ -1,0 +1,27 @@
+[
+    {
+        "key": "APP_NAME",
+        "value": "Doorstep mobile services",
+        "description": "Application Name",
+        "is_public": true
+    },
+    {
+        "key": "CURRENCY_SYMBOL",
+        "value": "₹",
+        "description": "Local Currency Symbol",
+        "is_public": true
+    },
+    {
+        "key": "OTP_EXPIRY_MINUTES",
+        "value": "5",
+        "description": "OTP validity duration",
+        "data_type": "int",
+        "is_public": true
+    },
+    {
+        "key": "SUPPORT_PHONE",
+        "value": "+91 9000000001",
+        "description": "Customer Support Contact",
+        "is_public": true
+    }
+]

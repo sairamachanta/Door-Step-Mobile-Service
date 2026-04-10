@@ -1,0 +1,315 @@
+
+--- Startup at 2026-02-26 14:48:20.650195 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 14:48:41.536135 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 14:48:43.571391 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 14:49:36.441271 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 14:50:45.428529 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 14:50:55.040796 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 14:52:08.742402 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 14:52:10.842115 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 14:52:26.504362 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 14:52:28.821182 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 14:52:52.021610 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 14:55:38.794166 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 14:57:11.995644 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 15:21:49.844937 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 15:22:00.672324 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 15:22:02.788597 ---
+Database tables verified/created.
+STARTUP CRITICAL ERROR: name 'phone' is not defined
+
+--- Startup at 2026-02-26 15:22:29.596423 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 15:22:31.794134 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 15:22:44.417798 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 15:22:46.517746 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 15:22:59.961197 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 15:23:31.250373 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 15:23:49.096711 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 15:23:51.190361 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 15:24:07.665390 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 15:26:42.673582 ---
+Database tables verified/created.
+Seeded user: 9000000001
+Seeding complete.
+
+--- Startup at 2026-02-26 15:26:55.686603 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 15:27:46.413300 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 15:28:35.148959 ---
+Database tables verified/created.
+Seeded user: 00000000-0000-0000-0000-000000000001
+STARTUP CRITICAL ERROR: (sqlalchemy.dialects.postgresql.asyncpg.Error) <class 'asyncpg.exceptions.StringDataRightTruncationError'>: value too long for type character varying(15)
+[SQL: INSERT INTO users (id, phone, email, password_hash, full_name, role, status, profile_image, is_phone_verified, is_email_verified, referral_code, referred_by, created_at, updated_at, last_login, wallet_balance, loyalty_points) VALUES ($1::UUID, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR, $7::VARCHAR, $8::VARCHAR, $9::BOOLEAN, $10::BOOLEAN, $11::VARCHAR, $12::UUID, now(), now(), $13::TIMESTAMP WITHOUT TIME ZONE, $14::NUMERIC(10, 2), $15::INTEGER) RETURNING users.created_at, users.updated_at]
+[parameters: (UUID('00000000-0000-0000-0000-000000000001'), '00000000-0000-0000-0000-000000000001', None, '$2b$12$OwmCiYgtJeOJyo24TjnnsuSL4ceV.6IVkN0ZiuoGCU2Fa7sKFEYh2', 'SuperAdmin (Root)', 'admin', 'active', None, True, False, None, None, None, 0.0, 0)]
+(Background on this error at: https://sqlalche.me/e/20/dbapi)
+
+--- Startup at 2026-02-26 15:28:49.865866 ---
+Database tables verified/created.
+Seeded user: 00000000-0000-0000-0000-000000000001
+STARTUP CRITICAL ERROR: (sqlalchemy.dialects.postgresql.asyncpg.IntegrityError) <class 'asyncpg.exceptions.UniqueViolationError'>: duplicate key value violates unique constraint "users_pkey"
+DETAIL:  Key (id)=(00000000-0000-0000-0000-000000000001) already exists.
+[SQL: INSERT INTO users (id, phone, email, password_hash, full_name, role, status, profile_image, is_phone_verified, is_email_verified, referral_code, referred_by, created_at, updated_at, last_login, wallet_balance, loyalty_points) VALUES ($1::UUID, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR, $7::VARCHAR, $8::VARCHAR, $9::BOOLEAN, $10::BOOLEAN, $11::VARCHAR, $12::UUID, now(), now(), $13::TIMESTAMP WITHOUT TIME ZONE, $14::NUMERIC(10, 2), $15::INTEGER) RETURNING users.created_at, users.updated_at]
+[parameters: (UUID('00000000-0000-0000-0000-000000000001'), '00000000-0000-0000-0000-000000000001', None, '$2b$12$DhaWB/qh.Gc6mFqRXVOVwO3WniNLEdm4AEHpARyKa/ASrXZP8.DKq', 'SuperAdmin (Root)', 'admin', 'active', None, True, False, None, None, None, 0.0, 0)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+--- Startup at 2026-02-26 15:29:02.878808 ---
+Database tables verified/created.
+Seeded user: 00000000-0000-0000-0000-000000000001
+STARTUP CRITICAL ERROR: (sqlalchemy.dialects.postgresql.asyncpg.IntegrityError) <class 'asyncpg.exceptions.UniqueViolationError'>: duplicate key value violates unique constraint "users_pkey"
+DETAIL:  Key (id)=(00000000-0000-0000-0000-000000000001) already exists.
+[SQL: INSERT INTO users (id, phone, email, password_hash, full_name, role, status, profile_image, is_phone_verified, is_email_verified, referral_code, referred_by, created_at, updated_at, last_login, wallet_balance, loyalty_points) VALUES ($1::UUID, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR, $7::VARCHAR, $8::VARCHAR, $9::BOOLEAN, $10::BOOLEAN, $11::VARCHAR, $12::UUID, now(), now(), $13::TIMESTAMP WITHOUT TIME ZONE, $14::NUMERIC(10, 2), $15::INTEGER) RETURNING users.created_at, users.updated_at]
+[parameters: (UUID('00000000-0000-0000-0000-000000000001'), '00000000-0000-0000-0000-000000000001', None, '$2b$12$PSdSU3hrDMFy5Sx7oYWnses.Bu1Ooh9C0ypR.jG7KRiDvTm3Kf4QG', 'SuperAdmin (Root)', 'admin', 'active', None, True, False, None, None, None, 0.0, 0)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+--- Startup at 2026-02-26 15:32:34.080158 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 15:40:26.483101 ---
+Database tables verified/created.
+Seeded user: 00000000-0000-0000-0000-000000000001
+STARTUP CRITICAL ERROR: (sqlalchemy.dialects.postgresql.asyncpg.IntegrityError) <class 'asyncpg.exceptions.UniqueViolationError'>: duplicate key value violates unique constraint "users_pkey"
+DETAIL:  Key (id)=(00000000-0000-0000-0000-000000000001) already exists.
+[SQL: INSERT INTO users (id, phone, email, password_hash, full_name, role, status, profile_image, is_phone_verified, is_email_verified, referral_code, referred_by, created_at, updated_at, last_login, wallet_balance, loyalty_points) VALUES ($1::UUID, $2::VARCHAR, $3::VARCHAR, $4::VARCHAR, $5::VARCHAR, $6::VARCHAR, $7::VARCHAR, $8::VARCHAR, $9::BOOLEAN, $10::BOOLEAN, $11::VARCHAR, $12::UUID, now(), now(), $13::TIMESTAMP WITHOUT TIME ZONE, $14::NUMERIC(10, 2), $15::INTEGER) RETURNING users.created_at, users.updated_at]
+[parameters: (UUID('00000000-0000-0000-0000-000000000001'), '00000000-0000-0000-0000-000000000001', None, '$2b$12$7loispbuxC6DbaehyPVDxOKFP2p697sxYza8V6JMw7IIKeP3UjTaq', 'System Administrator', 'admin', 'active', None, True, False, None, None, None, 0.0, 0)]
+(Background on this error at: https://sqlalche.me/e/20/gkpj)
+
+--- Startup at 2026-02-26 15:42:19.409619 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 15:48:56.530519 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 15:54:30.351067 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 16:19:45.937976 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 16:19:57.795623 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 16:20:41.995582 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 16:22:06.094148 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 16:23:05.354842 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 16:23:33.347810 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 16:24:02.639761 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 16:24:40.344575 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 16:24:57.126616 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 16:25:38.093062 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 16:26:01.176682 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 16:26:24.069976 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 16:26:48.469526 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 16:26:57.935771 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-26 16:27:31.085745 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-28 04:52:22.493120 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-28 04:58:45.681081 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-28 05:05:00.206325 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-28 05:05:14.999623 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-28 05:05:23.086843 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-28 05:05:24.517930 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-28 05:14:33.270795 ---
+Database tables verified/created.
+Seeded user: 00000000-0000-0000-0000-000000000001
+Seeded user: 9000000002
+Seeded user: 9000000003
+Seeding complete.
+
+--- Startup at 2026-02-28 05:22:47.693763 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-28 05:30:39.641053 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-28 05:33:33.405767 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-28 05:43:19.458307 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-28 06:02:28.853500 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-28 06:02:30.447606 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-28 06:03:08.159043 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-28 06:08:26.526204 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-28 06:09:02.156608 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-28 06:09:33.857091 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-28 06:09:51.741310 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-28 06:57:09.206606 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-02-28 14:16:02.097405 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-03-01 07:37:40.962660 ---
+Database tables verified/created.
+Seeding complete.
+
+--- Startup at 2026-03-01 07:47:53.215092 ---
+Database tables verified/created.
+Seeding complete.

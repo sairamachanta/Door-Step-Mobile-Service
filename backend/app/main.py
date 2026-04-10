@@ -43,23 +43,31 @@ async def startup_event():
 
         async with SessionLocal() as session:
             # Seed Users
-            from sqlalchemy import select, func
-            user_count = (await session.execute(select(func.count(User.id)))).scalar()
             user_seeds_path = os.path.join(seeds_dir, 'user_seeds.json')
-            if user_count == 0 and os.path.exists(user_seeds_path):
+            if os.path.exists(user_seeds_path):
                 import uuid
                 from .utils.security import get_password_hash
+                from sqlalchemy import select
                 with open(user_seeds_path, 'r') as f:
                     user_seeds = json.load(f)
+                
+                seeded_count = 0
                 for u_data in user_seeds:
-                    password = u_data.pop('password')
-                    u_data['password_hash'] = get_password_hash(password)
-                    u_data['is_phone_verified'] = True
-                    u_data['status'] = 'active'
-                    u_data['id'] = uuid.uuid4()
-                    session.add(User(**u_data))
-                with open(log_file, 'a') as f:
-                    f.write(f"Seeded {len(user_seeds)} initial users.\n")
+                    # Check if user already exists
+                    existing = await session.execute(select(User).where(User.phone == u_data['phone']))
+                    if not existing.scalar_one_or_none():
+                        password = u_data.pop('password')
+                        u_data['password_hash'] = get_password_hash(password)
+                        u_data['is_phone_verified'] = True
+                        u_data['status'] = 'active'
+                        u_data['id'] = uuid.uuid4()
+                        session.add(User(**u_data))
+                        seeded_count += 1
+                
+                if seeded_count > 0:
+                    await session.commit()
+                    with open(log_file, 'a') as f:
+                        f.write(f"Seeded {seeded_count} core system users.\n")
 
             # Seed Banners
             from .models.promotion import Banner

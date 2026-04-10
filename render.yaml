@@ -18,7 +18,7 @@ services:
       - key: JWT_REFRESH_SECRET_KEY
         generateValue: true
       - key: FRONTEND_URL
-        value: ""
+        value: https://doorstep-frontend-nru8.onrender.com
 
   - type: web
     name: doorstep-frontend

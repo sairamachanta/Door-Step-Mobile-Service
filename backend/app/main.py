@@ -103,26 +103,15 @@ async def startup_event():
 
 # CORS
 import os
-origins = [
-    "http://localhost:5173",
-    "http://127.0.0.1:5173",
-    "http://localhost:5174",
-    "http://127.0.0.1:5174",
-    "http://localhost:5175",
-    "http://127.0.0.1:5175",
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-]
+origins = ["*"]
 
-# Add production frontend URL if set
-frontend_url = os.environ.get("FRONTEND_URL")
-if frontend_url:
-    origins.append(frontend_url)
+# Origins are now wildcarded for flexibility
+# If specific security is needed later, we can restrict this to FRONTEND_URL
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
+    allow_origins=["*"],
+    allow_credentials=False, # Changed to False for wildcard support
     allow_methods=["*"],
     allow_headers=["*"],
     expose_headers=["*"],

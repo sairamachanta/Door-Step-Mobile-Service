@@ -29,11 +29,17 @@ async def seed_admin():
     ADMIN_NAME = "Super Admin"
     ADMIN_EMAIL = "admin@doorstep.com"
 
-    # Test user credentials
-    TEST_PHONE = "8888888888"
-    TEST_PASSWORD = "Test@123"
-    TEST_NAME = "Test User"
-    TEST_EMAIL = "test@doorstep.com"
+    # Technician credentials
+    TECH_PHONE = "7777777777"
+    TECH_PASSWORD = "Tech@123"
+    TECH_NAME = "Tech User"
+    TECH_EMAIL = "tech@doorstep.com"
+
+    # Customer credentials
+    CUST_PHONE = "8888888888"
+    CUST_PASSWORD = "User@123"
+    CUST_NAME = "Test Customer"
+    CUST_EMAIL = "customer@doorstep.com"
 
     print(f"Connecting to database...", flush=True)
     engine = create_async_engine(settings.DATABASE_URL)
@@ -45,42 +51,30 @@ async def seed_admin():
 
     async_session = sessionmaker(engine, class_=AsyncSession, expire_on_commit=False)
 
-    async with async_session() as session:
-        # Create Admin
-        result = await session.execute(select(User).where(User.phone == ADMIN_PHONE))
-        if not result.scalars().first():
-            admin = User(
-                id=uuid.uuid4(),
-                phone=ADMIN_PHONE,
-                email=ADMIN_EMAIL,
-                full_name=ADMIN_NAME,
-                role="admin",
-                password_hash=get_password_hash(ADMIN_PASSWORD),
-                is_phone_verified=True,
-                status="active"
-            )
-            session.add(admin)
-            print(f"✅ Admin created: phone={ADMIN_PHONE}, password={ADMIN_PASSWORD}", flush=True)
-        else:
-            print(f"Admin {ADMIN_PHONE} already exists, skipping.", flush=True)
+    users_to_seed = [
+        {"phone": ADMIN_PHONE, "password": ADMIN_PASSWORD, "name": ADMIN_NAME, "email": ADMIN_EMAIL, "role": "admin"},
+        {"phone": TECH_PHONE, "password": TECH_PASSWORD, "name": TECH_NAME, "email": TECH_EMAIL, "role": "technician"},
+        {"phone": CUST_PHONE, "password": CUST_PASSWORD, "name": CUST_NAME, "email": CUST_EMAIL, "role": "customer"},
+    ]
 
-        # Create Test Customer
-        result = await session.execute(select(User).where(User.phone == TEST_PHONE))
-        if not result.scalars().first():
-            test_user = User(
-                id=uuid.uuid4(),
-                phone=TEST_PHONE,
-                email=TEST_EMAIL,
-                full_name=TEST_NAME,
-                role="customer",
-                password_hash=get_password_hash(TEST_PASSWORD),
-                is_phone_verified=True,
-                status="active"
-            )
-            session.add(test_user)
-            print(f"✅ Test user created: phone={TEST_PHONE}, password={TEST_PASSWORD}", flush=True)
-        else:
-            print(f"Test user {TEST_PHONE} already exists, skipping.", flush=True)
+    async with async_session() as session:
+        for u in users_to_seed:
+            result = await session.execute(select(User).where(User.phone == u["phone"]))
+            if not result.scalars().first():
+                user = User(
+                    id=uuid.uuid4(),
+                    phone=u["phone"],
+                    email=u["email"],
+                    full_name=u["name"],
+                    role=u["role"],
+                    password_hash=get_password_hash(u["password"]),
+                    is_phone_verified=True,
+                    status="active"
+                )
+                session.add(user)
+                print(f"✅ {u['role'].upper()} created: phone={u['phone']}, password={u['password']}", flush=True)
+            else:
+                print(f"⏩ {u['role'].upper()} {u['phone']} already exists, skipping.", flush=True)
 
         await session.commit()
 

@@ -11,9 +11,12 @@ services:
         fromDatabase:
           name: doorstep-db
           property: connectionString
-      - key: SECRET_KEY
+      - key: PYTHON_VERSION
+        value: 3.10.12
+      - key: JWT_SECRET_KEY
         generateValue: true
-
+      - key: JWT_REFRESH_SECRET_KEY
+        generateValue: true
 databases:
   - name: doorstep-db
     databaseName: doorstep_db

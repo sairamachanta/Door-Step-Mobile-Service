@@ -17,37 +17,51 @@ class EncryptionHelper:
 
     @classmethod
     def init_keys(cls):
-        if not os.path.exists(KEYS_DIR):
-            os.makedirs(KEYS_DIR, mode=0o700)
+        try:
+            if not os.path.exists(KEYS_DIR):
+                os.makedirs(KEYS_DIR, mode=0o700)
 
-        if not os.path.exists(PRIVATE_KEY_PATH):
-            # Generate new RSA key pair
+            if not os.path.exists(PRIVATE_KEY_PATH):
+                # Generate new RSA key pair
+                private_key = rsa.generate_private_key(
+                    public_exponent=65537,
+                    key_size=2048
+                )
+                # Save private key
+                with open(PRIVATE_KEY_PATH, "wb") as f:
+                    f.write(private_key.private_bytes(
+                        encoding=serialization.Encoding.PEM,
+                        format=serialization.PrivateFormat.PKCS8,
+                        encryption_algorithm=serialization.NoEncryption()
+                    ))
+                # Save public key
+                public_key = private_key.public_key()
+                with open(PUBLIC_KEY_PATH, "wb") as f:
+                    f.write(public_key.public_bytes(
+                        encoding=serialization.Encoding.PEM,
+                        format=serialization.PublicFormat.SubjectPublicKeyInfo
+                    ))
+                print("Generated new RSA key pair for E2EE.", flush=True)
+
+            # Load keys into memory
+            with open(PRIVATE_KEY_PATH, "rb") as f:
+                cls._private_key = serialization.load_pem_private_key(f.read(), password=None)
+            
+            with open(PUBLIC_KEY_PATH, "rb") as f:
+                cls._public_key_pem = f.read().decode('utf-8')
+                
+        except Exception as e:
+            # If keys can't be loaded from files, generate in-memory
+            print(f"WARNING: Could not load keys from disk ({e}), generating in-memory keys.", flush=True)
             private_key = rsa.generate_private_key(
                 public_exponent=65537,
                 key_size=2048
             )
-            # Save private key
-            with open(PRIVATE_KEY_PATH, "wb") as f:
-                f.write(private_key.private_bytes(
-                    encoding=serialization.Encoding.PEM,
-                    format=serialization.PrivateFormat.PKCS8,
-                    encryption_algorithm=serialization.NoEncryption()
-                ))
-            # Save public key
-            public_key = private_key.public_key()
-            with open(PUBLIC_KEY_PATH, "wb") as f:
-                f.write(public_key.public_bytes(
-                    encoding=serialization.Encoding.PEM,
-                    format=serialization.PublicFormat.SubjectPublicKeyInfo
-                ))
-            print("Generated new RSA key pair for E2EE.")
-
-        # Load keys into memory
-        with open(PRIVATE_KEY_PATH, "rb") as f:
-            cls._private_key = serialization.load_pem_private_key(f.read(), password=None)
-        
-        with open(PUBLIC_KEY_PATH, "rb") as f:
-            cls._public_key_pem = f.read().decode('utf-8')
+            cls._private_key = private_key
+            cls._public_key_pem = private_key.public_key().public_bytes(
+                encoding=serialization.Encoding.PEM,
+                format=serialization.PublicFormat.SubjectPublicKeyInfo
+            ).decode('utf-8')
 
     @classmethod
     def get_public_key(cls) -> str:
@@ -96,9 +110,9 @@ class EncryptionHelper:
         tag = ciphertext_with_tag[-16:]
         
         return (
-            base64.b64base64(ciphertext).decode('utf-8'),
-            base64.b64base64(iv).decode('utf-8'),
-            base64.b64base64(tag).decode('utf-8')
+            base64.b64encode(ciphertext).decode('utf-8'),
+            base64.b64encode(iv).decode('utf-8'),
+            base64.b64encode(tag).decode('utf-8')
         )
     
     # Correction for base64 function name
@@ -136,4 +150,7 @@ class EncryptionHelper:
         }
 
 # Pre-initialize keys on module load
-EncryptionHelper.init_keys()
+try:
+    EncryptionHelper.init_keys()
+except Exception as e:
+    print(f"WARNING: Encryption key init failed: {e}", flush=True)
